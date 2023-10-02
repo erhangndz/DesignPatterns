@@ -1,0 +1,37 @@
+﻿@model CustomerProcessViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<div class="container">
+    <br />
+    <form method="post">
+        <label>Müşteri Adı Soyadı</label>
+        <input type="text" class="form-control" asp-for="Name" />
+        <br />
+        <label>Çekilecek Miktar</label>
+        <input type="number" class="form-control" asp-for="Amount" />
+        <br />
+        <button type="submit" class="btn btn-dark" onclick="withdrawMoney()">Para Çek</button>
+    </form>
+</div>
+
+<script>
+    function withdrawMoney() {
+        Swal.fire({
+
+            title: 'Tebrikler',
+            text: 'Para çekme talebiniz alındı!',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonText: 'Tamam',
+            cancelButtonText: 'İptal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Default/Index"; // Yönlendirilecek URL'yi buraya yazın
+            }
+        });
+    }
+</script>

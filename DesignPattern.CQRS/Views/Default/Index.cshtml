@@ -1,0 +1,33 @@
+﻿@using DesignPattern.CQRS.CQRSPattern.Results;
+@model List<GetProductQueryResult>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <br />
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Stok</th>
+            <th>Sil</th>
+            <th>Düzenle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.ProductName</td>
+                <td>@item.Price</td>
+                <td>@item.Stock</td>
+                <td><a asp-action="DeleteProduct" asp-route-id="@item.ID" class="btn btn-danger">Sil</a></td>
+                <td><a asp-action="EditProduct" asp-route-id="@item.ID" class="btn btn-info">Düzenle</a></td>
+            </tr>
+        }
+    </table>
+</div>
+
+<br />
+<a href="/Product/AddProduct" class="btn btn-primary">Yeni Ürün Ekle</a>
