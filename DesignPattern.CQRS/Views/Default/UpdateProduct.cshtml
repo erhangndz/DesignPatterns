@@ -1,0 +1,24 @@
+﻿@using DesignPattern.CQRS.CQRSPattern.Results;
+@model GetProductUpdateQueryResult
+@{
+    ViewData["Title"] = "UpdateProduct";
+}
+
+<h1 class="container">Ürün Düzenle</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="ProductID" />
+    <label>Ürün Adı</label>
+    <input type="text" class="form-control" asp-for="Name" />
+    <br />
+    <label>Stok Sayısı</label>
+    <input type="text" class="form-control" asp-for="Stock" />
+    <br />
+    <label>Ürün Fiyatı</label>
+    <input type="text" class="form-control" asp-for="Price" />
+    <br />
+    <label>Ürün Açıklaması</label>
+    <input type="text" class="form-control" asp-for="Description" />
+    <br />
+    <button class="btn btn-outline-dark">Kaydet</button>
+</form>

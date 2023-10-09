@@ -7,6 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<GetProductQueryHandler>();
+builder.Services.AddScoped<CreateProductCommandHandler>();
+builder.Services.AddScoped<GetProductByIdQueryHandler>();
+builder.Services.AddScoped<RemoveProductCommandHandler>();
+builder.Services.AddScoped<GetProductUpdateByIdQueryHandler>();
+builder.Services.AddScoped<UpdateProductCommandHandler>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
