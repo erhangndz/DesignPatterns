@@ -1,7 +1,13 @@
 
 
 
+using DesignPattern.UnitOfWork.BusinessLayer.Abstract;
+using DesignPattern.UnitOfWork.BusinessLayer.Concrete;
+using DesignPattern.UnitOfWork.DataAccessLayer.Abstract;
 using DesignPattern.UnitOfWork.DataAccessLayer.Concrete;
+using DesignPattern.UnitOfWork.DataAccessLayer.Repositories;
+using DesignPattern.UnitOfWork.DataAccessLayer.UnitofWork.Abstract;
+using DesignPattern.UnitOfWork.DataAccessLayer.UnitofWork.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +17,9 @@ builder.Services.AddDbContext<UOWContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSqlServer"));
 });
+builder.Services.AddScoped(typeof(IGenericDal<>), typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
+builder.Services.AddScoped<IUnitofWorkDal, UnitofWorkDal>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -32,6 +41,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Default}/{action=Index}/{id?}");
 
 app.Run();

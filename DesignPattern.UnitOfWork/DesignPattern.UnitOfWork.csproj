@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\UnitOfWorkDesignPattern\DesignPattern.UnitOfWork.BusinessLayer\DesignPattern.UnitOfWork.BusinessLayer.csproj" />
     <ProjectReference Include="..\UnitOfWorkDesignPattern\DesignPattern.UnitOfWork.DataAccessLayer\DesignPattern.UnitOfWork.DataAccessLayer.csproj" />
   </ItemGroup>
 
