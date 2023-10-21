@@ -1,0 +1,37 @@
+﻿@model CustomerViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<h1>Para Gönderme İşlemi</h1>
+
+<br />
+<form method="post">
+    <label>Gönderici</label>
+    @Html.DropDownListFor(x=>x.SenderId,(List<SelectListItem>)ViewBag.customers,"Göndereni Seçin",new{@class="form-control"})
+    <br />
+    <label>Alıcı</label>
+    @Html.DropDownListFor(x=>x.ReceiverId,(List<SelectListItem>)ViewBag.customers,"Alıcıyı Seçin",new{@class="form-control"})
+    <br />
+    <label>Tutar ₺</label>
+    <input type="number" class="form-control" asp-for="Amount" />
+    <br />
+    <button class="btn btn-outline-dark" onclick="sendMoney()">Gönder</button>
+</form>
+
+<script>
+    function sendMoney() {
+        Swal.fire({
+            title: 'Tebrikler para transferi başarılı bir şekilde gerçekleşti ',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonText: 'Tamam'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Default/Index"; // Yönlendirilecek URL'yi buraya yazın
+            }
+        });
+    }
+</script>
