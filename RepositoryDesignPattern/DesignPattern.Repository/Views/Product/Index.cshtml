@@ -1,0 +1,40 @@
+﻿@using DesignPattern.Repository.EntityLayer.Concrete;
+@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Ürünler</h1>
+
+<table class="container table table-hover">
+
+    <tr>
+        <th>#</th>
+        <th>Ürün Adı</th>
+        <th>Stok</th>
+        <th>Fiyat</th>
+        <th>Kategori</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+
+        <tr>
+            <th>@item.ProductId</th>
+            <td>@item.Name</td>
+            <td>@item.Stock</td>
+            <td>@item.Price ₺</td>
+            <td>@item.Category.Name</td>
+            <td>
+                <a asp-action="DeleteProduct" asp-route-id="@item.ProductId" class="btn btn-outline-danger">Sil</a>
+                <a asp-action="UpdateProduct" asp-route-id="@item.ProductId" class="btn btn-outline-info">Düzenle</a>
+            </td>
+        </tr>
+
+    }
+
+
+</table>
+<br />
+<a asp-action="AddProduct" class="btn btn-outline-dark">Yeni Ürün Ekle</a>

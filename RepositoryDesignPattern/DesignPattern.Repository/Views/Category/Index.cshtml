@@ -1,0 +1,34 @@
+﻿@using DesignPattern.Repository.EntityLayer.Concrete;
+@model List<Category>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Kategoriler</h1>
+
+<table class="container table table-hover">
+
+    <tr>
+        <th>#</th>
+        <th>Kategori Adı</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        
+    
+    <tr>
+        <th>@item.CategoryId</th>
+        <td>@item.Name</td>
+        <td>
+            <a asp-action="DeleteCategory" asp-route-id="@item.CategoryId" class="btn btn-outline-danger">Sil</a>
+            <a asp-action="UpdateCategory" asp-route-id="@item.CategoryId" class="btn btn-outline-info">Düzenle</a>
+        </td>
+    </tr>
+
+    }
+
+
+</table>
+<br />
+<a asp-action="AddCategory" class="btn btn-outline-dark">Yeni Kategori Ekle</a>

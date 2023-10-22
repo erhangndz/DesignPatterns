@@ -1,0 +1,26 @@
+﻿@using DesignPattern.Repository.EntityLayer.Concrete;
+@model Product
+@{
+    ViewData["Title"] = "AddProduct";
+}
+
+<h1>Ürün Ekleme</h1>
+
+<div class="container">
+    <form method="post">
+        <label>Ürün Adı</label>
+        <input type="text" class="form-control" asp-for="Name" />
+        <br />
+        <label>Kategori</label>
+        @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.category,new{@class="form-control"})
+        <br />
+        <label>Stok</label>
+        <input type="number" class="form-control" asp-for="Stock" />
+        <br />
+        <label>Fiyat ₺</label>
+        <input type="number" class="form-control" asp-for="Price" />
+        <br />
+        <button class="btn btn-outline-dark">Kaydet</button>
+    </form>
+
+</div>

@@ -19,4 +19,8 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.22" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DesignPattern.Repository.EntityLayer\DesignPattern.Repository.EntityLayer.csproj" />
+  </ItemGroup>
+
 </Project>
