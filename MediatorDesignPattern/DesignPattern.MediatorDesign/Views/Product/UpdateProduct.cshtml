@@ -1,0 +1,28 @@
+﻿@using DesignPattern.MediatorDesign.MediatorPattern.Results;
+@model UpdateProductByIdQueryResult
+@{
+    ViewData["Title"] = "UpdateProduct";
+}
+
+<h1>Ürün Güncelle</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="ProductId" />
+    <label>Ürün Adı</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <br />
+    <label>Kategorisi</label>
+    <input type="text" asp-for="Category" class="form-control" />
+    <br />
+    <label>Stok Türü</label>
+    <input type="text" asp-for="StockType" class="form-control" />
+    <br />
+    <label>Stok Sayısı</label>
+    <input type="text" asp-for="Stock" class="form-control" />
+    <br />
+    <label>Fiyat</label>
+    <input type="text" asp-for="Price" class="form-control" />
+    <br />
+    <button class="btn btn-outline-dark">Güncelle</button>
+</form>
+

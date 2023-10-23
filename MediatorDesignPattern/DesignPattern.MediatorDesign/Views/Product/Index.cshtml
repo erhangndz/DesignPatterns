@@ -1,0 +1,38 @@
+﻿@using DesignPattern.MediatorDesign.MediatorPattern.Results;
+@model List<GetAllProductQueryResult>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Ürünler</h1>
+
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Ürün Adı</th>
+        <th>Fiyat</th>
+        <th>Stok Türü</th>
+        <th>Stok Sayısı</th>
+        <th>Kategorisi</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.ProductId</th>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.StockType</td>
+            <td>@item.Stock</td>
+            <td>@item.Category</td>
+            <td>
+                <a asp-action="DeleteProduct" asp-route-id="@item.ProductId" class="btn btn-outline-danger">Sil</a>
+                <a asp-action="UpdateProduct" asp-route-id="@item.ProductId" class="btn btn-outline-info">Düzenle</a>
+                <a asp-action="GetProduct" asp-route-id="@item.ProductId" class="btn btn-outline-primary">Detaylar</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+<a asp-action="AddProduct" class="btn btn-outline-dark">Yeni Ürün Ekle</a>

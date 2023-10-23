@@ -1,0 +1,17 @@
+﻿@using DesignPattern.MediatorDesign.MediatorPattern.Results;
+@model GetProductByIdQueryResult
+@{
+    ViewData["Title"] = "GetProduct";
+}
+
+<h1>Ürün Getir</h1>
+
+<label>Ürün Id</label>
+<input type="text" class="form-control" asp-for="ProductId" />
+<br />
+<label>Ürün Adı</label>
+<input type="text" class="form-control" asp-for="Name" />
+<br />
+<label>Ürün Stok Sayısı</label>
+<input type="text" class="form-control" asp-for="Stock" />
+<br />
