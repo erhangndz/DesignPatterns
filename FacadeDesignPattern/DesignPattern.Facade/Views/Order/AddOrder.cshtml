@@ -1,0 +1,14 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "AddOrder";
+}
+
+<h1>Sipariş Oluştur</h1>
+
+<form method="post">
+    <label>Müşteri</label>
+    @Html.DropDownListFor(x=>x.CustomerId,(List<SelectListItem>)ViewBag.customer,new{@class="form-control"})
+    <br />
+   
+    <button class="btn btn-dark">Sipariş Oluştur</button>
+</form>

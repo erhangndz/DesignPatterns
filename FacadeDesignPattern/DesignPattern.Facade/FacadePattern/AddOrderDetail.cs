@@ -2,23 +2,18 @@
 
 namespace DesignPattern.Facade.FacadePattern
 {
-    public class AddOrder
+    public class AddOrderDetail
     {
         Context context = new();
 
-        public AddOrder()
+        public AddOrderDetail()
         {
             
         }
-
-        public void AddNewOrder(Order order)
+        public void AddNewOrderDetail(OrderDetail orderDetail)
         {
-            order.OrderDate = DateTime.Now;
-            context.Orders.Add(order);
+            context.OrderDetail.Add(orderDetail);
             context.SaveChanges();
         }
-
-
-
     }
 }

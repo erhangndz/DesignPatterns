@@ -1,0 +1,25 @@
+﻿@using DesignPattern.Facade.DataAccess;
+@model List<Customer>
+@{
+    ViewData["Title"] = "CustomerList";
+}
+
+<h1>Müşteri Listesi</h1>
+
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>Müşteri Adı Soyadı</th>
+        <th>Şehir</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.CustomerId</th>
+            <td>@item.NameSurname</td>
+            <td>@item.City</td>
+        </tr>
+    }
+</table>
+<br />
+<a asp-action="AddNewCustomer" class="btn btn-dark">Yeni Müşteri Ekle</a>

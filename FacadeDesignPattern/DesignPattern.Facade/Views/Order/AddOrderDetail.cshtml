@@ -1,0 +1,25 @@
+﻿@model OrderDetail
+@{
+    ViewData["Title"] = "AddOrderDetail";
+}
+
+<h1>Sipariş Detay Sayfası</h1>
+
+<form method="post">
+    <label>Müşteri</label>
+   @Html.DropDownListFor(x=>x.CustomerId,(List<SelectListItem>)ViewBag.customer,new{@class="form-control"})
+    <br />
+    <label>Ürün</label>
+    @Html.DropDownListFor(x=>x.ProductId,(List<SelectListItem>)ViewBag.product,new{@class="form-control"})
+    <br />
+    <label>Sipariş Id</label>
+    @Html.DropDownListFor(x=>x.OrderId,(List<SelectListItem>)ViewBag.order,new{@class="form-control"})
+    <br />
+    <label>Ürün Fiyatı</label>
+    <input type="text" asp-for="ProductPrice" class="form-control" />
+    <br />
+    <label>Ürün Adet</label>
+    <input type="text" asp-for="ProductCount" class="form-control" />
+    <br />
+    <button class="btn btn-dark">Sipariş Ver</button>
+</form>

@@ -1,0 +1,20 @@
+﻿@using DesignPattern.Facade.DataAccess;
+@model Customer
+@{
+    ViewData["Title"] = "AddNewCustomer";
+}
+
+<h1>Yeni Müşteri Ekle</h1>
+
+<form method="post">
+    <label>Müşteri Ad Soyad</label>
+    <input type="text" asp-for="NameSurname" class="form-control" />
+    <br />
+    <label>Müşteri Adresi</label>
+    <input type="text" asp-for="Address" class="form-control" />
+    <br />
+    <label>Müşteri Şehri</label>
+    <input type="text" asp-for="City" class="form-control" />
+    <br />
+    <button class="btn btn-dark">Kaydet</button>
+</form>
