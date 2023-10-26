@@ -1,0 +1,25 @@
+﻿@using DesignPattern.Decorator.DataAccess;
+@model Message
+@{
+    ViewData["Title"] = "Index2";
+}
+
+<h1>Index2</h1>
+
+<form method="post">
+    <label>Gönderen</label>
+    <input type="text" asp-for="Sender" class="form-control" />
+    <br />
+    <label>Alıcı</label>
+    <input type="text" asp-for="Receiver" class="form-control" />
+    <br />
+    <label>Konu</label>
+    <input type="text" asp-for="Subject" class="form-control" />
+    <br />
+    <label>Mesaj</label>
+    <input type="text" asp-for="Body" class="form-control" />
+    <br />
+    <button class="btn btn-dark">Gönder</button>
+
+</form>
+
